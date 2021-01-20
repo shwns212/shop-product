@@ -21,6 +21,12 @@ podTemplate(label: 'builder',
 		)
 ]) {
 	node('builder') {
+		stage('Checkout') {
+			container('docker'){
+				checkout scm
+			}
+		}
+
 		stage('Build') {
 			container('docker') {
 				sh "./shop-product/gradlew build"
