@@ -13,13 +13,6 @@ podTemplate(label: 'builder',
 			ttyEnabled: true
 		),
 		containerTemplate(
-			name: 'gradle',
-			image: 'gradle:5.6-jdk8',
-			command: 'cat',
-			alwaysPullImage: false,
-			ttyEnabled: true
-		),
-		containerTemplate(
 			name: 'kubectl',
 			image: 'lachlanevenson/k8s-kubectl:v1.15.3',
 			command: 'cat',
@@ -32,13 +25,6 @@ podTemplate(label: 'builder',
 			checkout scm
 		}
 
-		stage('Build') {
-			container('gradle') {
-				// sh "chmod 777 ./shop-product/gradlew"
-				// sh "./shop-product/gradlew build"
-				sh "gradle -x test build"
-			}
-		}
 
 		stage('Docker build') {
 			container('docker') {
