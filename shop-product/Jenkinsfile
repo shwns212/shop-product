@@ -25,12 +25,6 @@ podTemplate(label: 'builder',
 			checkout scm
 		}
 
-		stage('Build') {
-			container('docker') {
-				sh "./shop-product/gradlew build"
-			}
-		}
-
 		stage('Docker build') {
 			container('docker') {
 				sh "docker build -t ${DOCKER_IMAGE_NAME} ."
