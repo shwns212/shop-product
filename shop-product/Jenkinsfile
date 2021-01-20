@@ -11,13 +11,16 @@ podTemplate(label: 'builder',
 			command: 'cat',
 			alwaysPullImage: false,
 			ttyEnabled: true
+		),
+		containerTemplate(
+			name: 'kubectl',
+			image: 'lachlanevenson/k8s-kubectl:v1.15.3',
+			command: 'cat',
+			alwaysPullImage: false,
+			ttyEnabled: true
 		)
 ]) {
 	node('builder') {
-		stage('Checkout') {
-			checkout scm
-		}
-
 		stage('Build') {
 			container('docker') {
 				sh "./shop-product/gradlew build"
@@ -28,6 +31,17 @@ podTemplate(label: 'builder',
 			container('docker') {
 				sh "docker build -t ${DOCKER_IMAGE_NAME} ."
 				sh "docker push ${DOCKER_IMAGE_NAME}"
+			}
+		}
+
+		stage('Run kubectl') {
+			container('kubectl') {
+				sh "kubectl get ns ${NAMEPSACE} || kubectl create ns ${NAMEPSACE}"
+
+				sh "echo ${DATE}"
+				sh "sed -i.bak 's#DATE_STRING#${DATE}#' ./shop-product/k8s/product.yaml" 
+
+				sh "kubectl apply -f ./shop-product/k8s/product.yaml -n ${NAMEPSACE}"
 			}
 		}
 	}
