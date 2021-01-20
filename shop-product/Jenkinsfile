@@ -29,6 +29,7 @@ podTemplate(label: 'builder',
 
 		stage('Build') {
 			container('docker') {
+				sh "chmod 777 ./shop-product/gradlew"
 				sh "./shop-product/gradlew build"
 			}
 		}
