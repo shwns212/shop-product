@@ -3,7 +3,7 @@ def NAMEPSACE = "product"
 def VERSION = "${env.BUILD_NUMBER}"
 def DATE = new Date();
 
-pordTemplate(label: 'builder',
+podTemplate(label: 'builder',
 	containers: [
 		containerTemplate(
 			name: 'gradle',
@@ -47,9 +47,9 @@ pordTemplate(label: 'builder',
 				sh "kubectl get ns ${NAMEPSACE} || kubectl create ns ${NAMEPSACE}"
 
 				sh "echo ${DATE}"
-				sh "sed -i.bak 's#DATE_STRING#${DATE}#'" ./k8s/product.yaml
+				sh "sed -i.bak 's#DATE_STRING#${DATE}#'" ./shop-product/k8s/product.yaml
 
-				sh "kubectl apply -f ./k8s/product.yaml -n ${NAMEPSACE}"
+				sh "kubectl apply -f ./shop-product/k8s/product.yaml -n ${NAMEPSACE}"
 			}
 		}
 	}
