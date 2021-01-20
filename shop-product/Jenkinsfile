@@ -29,9 +29,7 @@ podTemplate(label: 'builder',
 ]) {
 	node('builder') {
 		stage('Checkout') {
-			container('docker'){
-				checkout scm
-			}
+			checkout scm
 		}
 
 		stage('Build') {
