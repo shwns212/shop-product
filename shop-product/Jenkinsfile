@@ -13,8 +13,8 @@ podTemplate(label: 'builder',
 			ttyEnabled: true
 		),
 		containerTemplate(
-			name: 'gradle',
-			image: 'gradle',
+			name: 'java',
+			image: 'openjdk:8-alpine',
 			command: 'cat',
 			alwaysPullImage: false,
 			ttyEnabled: true
@@ -35,8 +35,9 @@ podTemplate(label: 'builder',
 		}
 
 		stage('Build') {
-			container('gradle') {
-				sh "gradle -x test build"
+			container('java') {
+				sh "chmod 777 ./shop-product/gradlew"
+				sh "./shop-product/gradlew build"
 			}
 		}
 
