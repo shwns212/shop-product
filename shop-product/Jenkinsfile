@@ -30,9 +30,6 @@ podTemplate(label: 'builder',
 		}
 
 		stage('Build') {
-			#container('gradle') {
-			#	sh "gradle -x test build"
-			#}
 			sh "./shop-product/gradlew build"
 		}
 
