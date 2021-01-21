@@ -3,7 +3,7 @@ def NAMEPSACE = "product"
 def VERSION = "${env.BUILD_NUMBER}"
 def DATE = new Date();
 
-podTemplate(label: 'product',
+podTemplate(
 	containers: [
 		containerTemplate(
 			name: 'docker',
@@ -18,7 +18,7 @@ podTemplate(label: 'product',
 			ttyEnabled: true
 		)
 ]) {
-	node('product') {
+	node(POD_LABEL) {
 		stage('Checkout') {
 			checkout scm
 		}
