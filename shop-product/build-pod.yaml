@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: gradle
-    image: gradle:5.6-jdk8
+  - name: java
+    image: openjdk:8-alpine
     command: ["tail", "-f", "/dev/null"]
     
   - name: docker
