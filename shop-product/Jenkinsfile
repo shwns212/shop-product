@@ -13,8 +13,8 @@ pipeline {
 	}
 
 	stages {
-		steps {
-			stage('Build') {
+		stage('Build') {
+			steps {
 				container('gradle') {
 					sh "gradle -x test build"	
 				}
