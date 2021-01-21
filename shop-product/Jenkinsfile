@@ -29,7 +29,7 @@ pipeline {
 			}
 		}
 
-		stage('Run kubectl') {
+		//stage('Run kubectl') {
 		// 	steps {
 		// 		container('kubectl') {
 		// 			sh "kubectl get ns ${NAMEPSACE} || kubectl create ns ${NAMEPSACE}"
