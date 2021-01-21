@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: pod
+spec:
+  containers:
+  - name: gradle
+    image: gradle:5.6-jdk8
+    command: ["tail", "-f", "/dev/null"]
+    
+  - name: docker
+    image: docker
+    command: ["tail", "-f", "/dev/null"]
+    volumeMounts:
+      - name: docker
+        mountPath: /var/run/docker.sock
+    
+  - name: k8s
+    image: lachlanevenson/k8s-kubectl:v1.15.3
+    command: ["tail", "-f", "/dev/null"]
+    
+  volumes:
+    - name: docker
+      hostPath:
+        path: /var/run/docker.sock
