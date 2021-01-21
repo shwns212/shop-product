@@ -3,7 +3,7 @@ def NAMEPSACE = "product"
 def VERSION = "${env.BUILD_NUMBER}"
 def DATE = new Date();
 
-podTemplate(
+podTemplate(label: 'jenkins-slave',
 	containers: [
 		containerTemplate(
 			name: 'docker',
@@ -18,7 +18,7 @@ podTemplate(
 			ttyEnabled: true
 		)
 ]) {
-	node(POD_LABEL) {
+	node('jenkins-slave') {
 		stage('Checkout') {
 			checkout scm
 		}
