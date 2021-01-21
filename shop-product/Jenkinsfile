@@ -12,10 +12,10 @@ pipeline {
 	}
 
 	stages {
-		stage('Build') {
+		stage('java') {
 			steps {
-				container('gradle') {
-					sh "gradle -x test build"	
+				container('java') {
+					sh "./shop-product/gradlew build"	
 				}
 			}
 		}
