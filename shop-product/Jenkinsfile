@@ -8,7 +8,7 @@ pipeline {
 		kubernetes {
 			label 'product'
 			idleMinutes 5
-			yamlFile 'build-pod.yaml'
+			yamlFile './shop-product/build-pod.yaml'
 		}
 	}
 
