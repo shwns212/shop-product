@@ -7,7 +7,7 @@ spec:
 #     command: ["tail", "-f", "/dev/null"]
     
   - name: gradle
-    image: grdle:6.8.0-jdk8
+    image: gradle:6.8.0-jdk8
     command: ["tail", "-f", "/dev/null"]
     
   - name: docker
