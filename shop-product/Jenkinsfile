@@ -29,14 +29,14 @@ pipeline {
 			}
 		}
 
-		//stage('Docker Build') {
-		//	steps {
-		//		container('docker') {
-		//			sh "cd ./shop-product/dockerfile && docker build -t ${DOCKER_IMAGE_NAME} ."
-		//			sh "docker push ${DOCKER_IMAGE_NAME}"
-		//		}
-		//	}
-		//}
+		stage('Docker Build') {
+			steps {
+				container('docker') {
+					sh "cd ./shop-product/dockerfile && docker build -t ${DOCKER_IMAGE_NAME} ."
+					sh "docker push ${DOCKER_IMAGE_NAME}"
+				}
+			}
+		}
 
 		//stage('Run kubectl') {
 		// 	steps {
