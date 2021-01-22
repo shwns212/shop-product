@@ -15,7 +15,6 @@ def notifyFailed(slackChannel) {
   slackSend(channel: "${slackChannel}", color: '#FFF00', message: "Deploy failed... Job '${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})'  ")
 }
 
-try{    
     pipeline {
         agent {
           kubernetes {
@@ -24,7 +23,8 @@ try{
           }
         }
 
-        stages {
+      stages {
+        try{    
 
           stage('Start') {
             notifyStarted(SLACK_CHANNEL)
@@ -68,10 +68,10 @@ try{
               }
             }
            }
+          notifySuccessful(SLACK_CHANNEL)
+        } catch(e) {
+          currentBuild.result = "FAILED"
+          notifyFailed(SLACK_CHANNEL)
         }
+      } 
     }
-    notifySuccessful(SLACK_CHANNEL)
-  } catch(e) {
-    currentBuild.result = "FAILED"
-    notifyFailed(SLACK_CHANNEL)
-  }
