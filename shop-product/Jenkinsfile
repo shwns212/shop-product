@@ -12,6 +12,12 @@ pipeline {
 	}
 
 	stages {
+		
+		stage('Checkout') {
+			steops {
+				checkout scm	
+			}
+		
 		stage('Build') {
 			steps {
 				container('gradle') {
