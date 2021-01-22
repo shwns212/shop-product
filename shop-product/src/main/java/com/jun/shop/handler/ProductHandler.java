@@ -13,6 +13,6 @@ public class ProductHandler {
 
 	public Mono<ServerResponse> product(ServerRequest requeset){
 		return ServerResponse.ok()
-				.body(Mono.just(new Product(1L,"test22222222",10000)), Product.class);
+				.body(Mono.just(new Product(1L,"ci/cd test",10000)), Product.class);
 	}
 }
