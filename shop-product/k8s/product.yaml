@@ -31,10 +31,10 @@ spec:
             value: 'DATE_STRING'
           ports:
           - containerPort: 8080
-       tolerations:
-       - key: "app"
-         value: "api"
-         effect: "NoSchedule"
+        tolerations:
+        - key: "app"
+          value: "api"
+          effect: "NoSchedule"
 
 ---
 
