@@ -26,6 +26,6 @@ spec:
       hostPath:
         path: /var/run/docker.sock
   tolerations:
-    key: app
+  - key: app
     value: jenkins
     effect: NoSchedule
