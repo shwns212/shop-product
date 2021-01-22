@@ -1,6 +1,5 @@
 def DOCKER_IMAGE_NAME = "192.168.219.104:5000/product"
 def NAMEPSACE = "product"
-def VERSION = "${env.BUILD_NUMBER}"
 def DATE = new Date();
 
 pipeline {
