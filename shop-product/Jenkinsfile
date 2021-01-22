@@ -17,6 +17,7 @@ pipeline {
 			steops {
 				checkout scm	
 			}
+		}
 		
 		stage('Build') {
 			steps {
