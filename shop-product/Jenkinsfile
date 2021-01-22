@@ -12,11 +12,12 @@ pipeline {
 	}
 
 	stages {
-		stage('java') {
+		stage('Build') {
 			steps {
-				container('java') {
-					sh "chmod 777 ./shop-product/gradlew"
-					sh "./shop-product/gradlew build"	
+				container('gradle') {
+					sh "cd ./shop-product && gradle -x test build"
+					//sh "chmod 777 ./shop-product/gradlew"
+					//sh "./shop-product/gradlew build"	
 				}
 			}
 		}
