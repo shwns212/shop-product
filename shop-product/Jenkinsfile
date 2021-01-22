@@ -39,17 +39,17 @@ pipeline {
 			}
 		}
 
-		//stage('Run kubectl') {
-		// 	steps {
-		// 		container('kubectl') {
-		// 			sh "kubectl get ns ${NAMEPSACE} || kubectl create ns ${NAMEPSACE}"
+		stage('Run kubectl') {
+		 	steps {
+		 		container('kubectl') {
+		 			sh "kubectl get ns ${NAMEPSACE} || kubectl create ns ${NAMEPSACE}"
 
-		// 			sh "echo ${DATE}"
-		// 			sh "sed -i.bak 's#DATE_STRING#${DATE}#' ./shop-product/k8s/product.yaml" 
+		 			sh "echo ${DATE}"
+		 			sh "sed -i.bak 's#DATE_STRING#${DATE}#' ./shop-product/k8s/product.yaml" 
 
-		// 			sh "kubectl apply -f ./shop-product/k8s/product.yaml -n ${NAMEPSACE}"
-		// 		}
-		// 	}
-		// }
+		 			sh "kubectl apply -f ./shop-product/k8s/product.yaml"
+		 		}
+		 	}
+		 }
 	}
 }
