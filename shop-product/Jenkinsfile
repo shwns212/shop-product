@@ -15,6 +15,7 @@ pipeline {
 		stage('java') {
 			steps {
 				container('java') {
+					sh "chmod 777 ./shop-product/gradlew"
 					sh "./shop-product/gradlew build"	
 				}
 			}
