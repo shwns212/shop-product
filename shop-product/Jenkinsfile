@@ -5,7 +5,7 @@ def DATE = new Date();
 
 pipeline {
 	agent {
-		kubernetes {
+		label {
 			idleMinutes 5
 			yamlFile './shop-product/build-pod.yaml'
 		}
