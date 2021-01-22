@@ -1,7 +1,7 @@
 def DOCKER_IMAGE_NAME = "192.168.219.104:5000/product"
 def NAMEPSACE = "product"
 def DATE = new Date();
-def SLACK_CHANNEL = "#project"
+def SLACK_CHANNEL = "project"
 
 def notifyStarted(slackChannel) {
   slackSend(channel: "${slackChannel}", color: '#FFF00', message: "Deploy Started... Job '${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})'  ")
