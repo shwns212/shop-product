@@ -36,8 +36,10 @@ pipeline {
     stages {
 
         stage('Start') {
-          runCommand { -> 
-            notifyStarted(SLACK_CHANNEL)
+          steps {
+            runCommand { -> 
+              notifyStarted(SLACK_CHANNEL)
+            }
           }
         }
 
