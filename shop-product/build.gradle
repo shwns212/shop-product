@@ -20,8 +20,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
-	compile group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '0.8.6.RELEASE'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+	//compile group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '0.8.6.RELEASE'
 // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
 compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.0.0'
 
