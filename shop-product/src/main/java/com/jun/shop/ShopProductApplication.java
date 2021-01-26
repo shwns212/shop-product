@@ -7,7 +7,7 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 import com.jun.shop.kafka.KafkaRunner;
 
 @SpringBootApplication
-@EnableR2dbcRepositories
+//@EnableR2dbcRepositories
 public class ShopProductApplication {
 
 	public static void main(String[] args) {
