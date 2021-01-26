@@ -27,5 +27,7 @@ spec:
         path: /var/run/docker.sock
   tolerations:
   - key: app
-    value: jenkins
+    value: node3
     effect: NoSchedule
+  nodeSelector:
+    app: node3
