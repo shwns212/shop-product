@@ -33,7 +33,7 @@ spec:
           - containerPort: 8080
         tolerations:
         - key: "app"
-          value: "api"
+          value: "node3"
           effect: "NoSchedule"
 
 ---
